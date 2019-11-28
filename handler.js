@@ -1,6 +1,7 @@
 'use strict';
 
 const moment = require('moment');
+const datos = require('./data');
 
 module.exports.hello = async event => {
   const ahora = moment().locale('es').utcOffset(-6).format('LLL');
@@ -9,7 +10,8 @@ module.exports.hello = async event => {
     statusCode: 200,
     body: JSON.stringify(
       {
-        message: `Hola, La hora acutual es ${ahora}.`,
+        message: `Hola, La hora actual es ${ahora}.`,
+        data: datos,
         input: event,
       },
       null,
