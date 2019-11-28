@@ -1,0 +1,27 @@
+{
+  "name": "pricecalculator",
+  "version": "1.0.0",
+  "description": "Calculador de precios en base a tiempos y fechas",
+  "main": "serverless.yml",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/COANelmejor/price-calculator.git"
+  },
+  "keywords": [
+    "work",
+    "hour",
+    "planner"
+  ],
+  "author": "COANelmejor <coanelmejor@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/COANelmejor/price-calculator/issues"
+  },
+  "homepage": "https://github.com/COANelmejor/price-calculator#readme",
+  "dependencies": {
+    "moment": "^2.24.0"
+  }
+}
