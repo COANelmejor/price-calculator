@@ -6,8 +6,8 @@ module.exports.hello = async event => {
   const q = event.queryStringParameters || {};
 
 
-  const fecha = q.fecha || moment().hour(0).minute(0).add(1, 'days').format('DD-MMM').toLowerCase();
-  let year = q.year || moment().hour(0).minute(0).add(1, 'days').format('YYYY').toLowerCase();
+  const fecha = q.fecha || moment().hour(0).minute(0).format('DD-MMM').toLowerCase();
+  let year = q.year || moment().hour(0).minute(0).format('YYYY').toLowerCase();
   let fechasplit = fecha.split('-');
 
   console.log(fecha);
@@ -80,7 +80,7 @@ module.exports.hello = async event => {
 
     const diaTrabajo = {
       horas_a_trabajar: dias[td],
-      fecha: trabajo.fecha.locale(d.locale).format('LLLL'),
+      fecha: trabajo.fecha.locale(d.locale).format('dddd, DD [de] MMMM [de] YYYY'),
       fecha_corta: trabajo.fecha.locale(d.locale).format('DD-MMM-YYYY'),
       diafestivo: trabajo.diafestivo,
       findesemana: trabajo.finde,
@@ -100,18 +100,15 @@ module.exports.hello = async event => {
     precioTotal += diaTrabajo.total_por_dia;
     plan.push(diaTrabajo);
   }
-
-  console.log(plan);
-  console.log(precioTotal);
-
   return {
     statusCode: 200,
     body: JSON.stringify({
         message: `Plan Generado con éxito`,
         consulta: q,
         fecha_de_inicio: `${fecha}-${year}`,
+        fecha_de_entrega: moment().year(year).month(fechasplit[1]).date(fechasplit[0]).add((totaldias), 'days').format('DD-MMM-YYYY').toLowerCase(),
         total_dias_a_trabajar: dias.length,
-        tiempo_de_entrega_en_dias_calendario: totaldias,
+        tiempo_de_entrega_en_dias_calendario: totaldias + 1,
         horas_a_trabajar_por_dia: horasxdia,
         total_horas_a_trabajar: totalhoras,
         precio_total: precioTotal,
