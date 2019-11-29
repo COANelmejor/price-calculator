@@ -82,6 +82,20 @@ const precioFestivosMiltiplier = precioFindeMiltiplier;
  * **"mmm"** es el mes en formato de 3 letras en inglés: "jan", "feb", "mar", etc.
  */
 const diasFestivos = [
+    '01-jan',
+    '02-jan',
+    '03-jan',
+    '04-jan',
+    '05-jan',
+    '09-apr',
+    '10-apr',
+    '11-apr',
+    '12-apr',
+    '01-may',
+    '29-jun',
+    '15-sep',
+    '20-oct',
+    '01-nov',
     '16-dec',
     '17-dec',
     '18-dec',
@@ -98,11 +112,6 @@ const diasFestivos = [
     '29-dec',
     '30-dec',
     '31-dec',
-    '01-jan',
-    '02-jan',
-    '03-jan',
-    '04-jan',
-    '05-jan',
 ]
 
 const locale = 'es';
